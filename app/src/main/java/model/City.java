@@ -8,10 +8,10 @@ public class City {
     private String cityName;
     private String cityCode;
     private int provinceId;
-    public void getId(){
+    public int getId(){
         return id;
     }
-    public void setId(){
+    public void setId(int id){
         this.id=id;
     }
     public String getCityName(){
