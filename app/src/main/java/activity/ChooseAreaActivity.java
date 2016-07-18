@@ -1,5 +1,7 @@
 package activity;
 
+
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -15,7 +17,6 @@ import android.widget.Toast;
 import com.example.zjm.coolweather.R;
 
 import java.util.ArrayList;
-import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 import model.City;
@@ -29,7 +30,7 @@ import util.Utility;
 /**
  * Created by zjm on 2016/7/17.
  */
-public class ChooseAreaActivity extends Activity{
+public class ChooseAreaActivity extends Activity {
     public static final int LEVEL_PROVINCE=0;
     public static final int LEVEL_CITY=1;
     public static final int LEVEL_COUNTRY=2;
@@ -190,7 +191,7 @@ private void queryFromServer(final String code,final String type){
                 @Override
                 public void run() {
                     closeProgressDialog();
-                    Toast.makeText(ChooseAreaActivity.this,"加载失败",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChooseAreaActivity.this,"加载失败", Toast.LENGTH_SHORT).show();
                 }
             });
         }
