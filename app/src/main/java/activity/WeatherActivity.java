@@ -19,6 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
+import receiver.AutoUpdateReceiver;
 import util.HttpCallbackListener;
 import util.HttpUtil;
 import util.Utility;
@@ -137,7 +138,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
     private void queryFromServer(final String address,final String type){
         HttpUtil.sendHttpRequest(address, new HttpCallbackListener() {
             @Override
-            public void onFinish(String response) {//修改了finaal String response
+            public void onFinish(String response) {//修改了final String response
                 if ("countyCode".equals(type)){
                     if (!TextUtils.isEmpty(response)){
                         //从服务器返回的数据中解析出天气代号
@@ -191,5 +192,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         currentDataText.setText(prefs.getString("current_data",""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+        Intent intent=new Intent(this,AutoUpdateReceiver.class);
+        startService(intent);
     }
 }
